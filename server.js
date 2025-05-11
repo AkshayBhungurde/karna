@@ -41,6 +41,7 @@
 
 
 const express = require("express");
+require('dotenv').config();
 const cors = require("cors"); // ✅ Import CORS
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
@@ -52,14 +53,14 @@ const teacherRoutes = require('./routes/teacher');
 
 //const authRoutes = require('./routes/authRoutes'); // Assuming authRoutes is saved in routes folder
 
-require('dotenv').config();
+
 
 const app = express();
 const PORT = 5000;
 
 // ✅ Enable CORS for frontend
 app.use(cors({
-  origin: "process.env.CLIENT_URL", // Frontend URL
+  origin: process.env.CLIENT_URL, // Frontend URL
   credentials: true,
 }));
 
